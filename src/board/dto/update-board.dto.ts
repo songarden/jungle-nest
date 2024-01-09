@@ -1,4 +1,4 @@
 export class UpdateBoardDto {
-    boardName: string;
-    boardContent: string;
+    board_name: string;
+    board_content: string;
 }

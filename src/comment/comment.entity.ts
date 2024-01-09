@@ -3,15 +3,15 @@ import { User } from "src/user/user.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("comment_table")
-export class Commen {
+export class Comment {
     @PrimaryGeneratedColumn()
     commentId: number;
 
     @ManyToOne(() => User)
-    commentUser: string;
+    commentUser: User;
 
     @ManyToOne(() => Board)
-    commentBoard: number;
+    commentBoard: Board;
 
     @UpdateDateColumn()
     commentDate: Date;  

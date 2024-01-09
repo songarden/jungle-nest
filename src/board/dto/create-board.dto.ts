@@ -6,7 +6,4 @@ export class CreateBoardDto {
 
     @IsNotEmpty()
     boardContent: string;
-
-    @IsNotEmpty()
-    boardUser: string;
 }

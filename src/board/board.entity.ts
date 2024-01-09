@@ -1,20 +1,25 @@
+import { instanceToPlain } from "class-transformer";
 import { User } from "src/user/user.entity";
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn, Table, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("board_table")
-export class Board extends BaseEntity {
+export class Board {
     @PrimaryGeneratedColumn()
-    boardId: number;
+    board_id: number;
 
     @Column()
-    boardName: string;
+    board_name: string;
 
     @Column()
-    boardContent: string;
+    board_content: string;
 
     @ManyToOne(() => User)
-    boardUser: string;
+    @JoinColumn({ name: 'board_user'})
+    board_user: User;
 
-    @UpdateDateColumn()
-    boardDate: Date;
+    @CreateDateColumn({ 
+        type: 'datetime',
+        default: () => 'CURRENT_TIMESTAMP',
+    })
+    board_date: Date;
 }

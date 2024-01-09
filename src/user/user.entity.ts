@@ -1,23 +1,25 @@
-import { Column, Entity, PrimaryColumn, Unique } from "typeorm";
+import { Exclude } from "class-transformer";
+import { Column, Entity, Exclusion, PrimaryColumn, Unique } from "typeorm";
 
 @Entity("user_table")
-@Unique(['userId'])
+@Unique(['user_id'])
 export class User {
     @PrimaryColumn()
-    memberId : string;
+    member_id : string;
 
     @Column()
-    userId : string;
+    user_id : string;
+
+    
+    @Column()
+    user_info : string;
 
     @Column()
-    userInfo : string;
+    user_name : string;
 
     @Column()
-    userName : string;
+    user_email : string;
 
     @Column()
-    userEmail : string;
-
-    @Column()
-    userRoles : string;
+    user_roles : string;
 }
